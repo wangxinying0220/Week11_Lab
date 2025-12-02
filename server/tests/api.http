@@ -1,0 +1,40 @@
+### 1. 測試：建立新報名 (Create)
+# 預期結果：回傳 201 Created 與一個 id
+POST http://localhost:3001/api/signup
+Content-Type: application/json
+
+{
+  "name": "測試人員A",
+  "email": "testA@example.com",
+  "phone": "0912345678"
+}
+
+### 2. 測試：重複報名 (測試唯一索引)
+# 預期結果：因為 email 重複，應該回傳 409 Conflict，並顯示錯誤訊息
+POST http://localhost:3001/api/signup
+Content-Type: application/json
+
+{
+  "name": "測試人員A分身",
+  "email": "testA@example.com",
+  "phone": "0900000000"
+}
+
+### 3. 測試：取得列表 (Read)
+# 預期結果：回傳 200 OK，包含 data 陣列與 pagination 分頁資訊
+GET http://localhost:3001/api/signup?page=1&limit=5
+
+### 4. 測試：更新資料 (Update)
+# 注意：請手動將下方的 id 替換成步驟 1 回傳的 id
+# 預期結果：回傳 200 OK，updated: 1
+PATCH http://localhost:3001/api/signup/這裡要填入剛剛拿到的ID
+Content-Type: application/json
+
+{
+  "phone": "0999888777"
+}
+
+### 5. 測試：刪除資料 (Delete)
+# 注意：請手動將下方的 id 替換成步驟 1 回傳的 id
+# 預期結果：回傳 204 No Content
+DELETE http://localhost:3001/api/signup/這裡要填入剛剛拿到的ID

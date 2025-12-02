@@ -1,0 +1,12 @@
+# 忽略 Node.js 龐大的套件庫
+node_modules/
+
+# 忽略環境變數 (保護帳號密碼)
+.env
+
+# 忽略 Docker 掛載的資料夾 (這是本機資料)
+docker/mongo-data/
+
+# 忽略作業系統產生的垃圾檔
+.DS_Store
+Thumbs.db
