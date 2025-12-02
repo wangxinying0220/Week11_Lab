@@ -1,0 +1,9 @@
+db.participants.find()
+use week11
+db.participants.find()
+exit
+db.participants.find()
+use week11
+npm run dev
+db.participants.find()
+use week11
